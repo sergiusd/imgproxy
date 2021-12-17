@@ -585,7 +585,7 @@ func applyFormatOption(po *processingOptions, args []string) error {
 		return nil
 	}
 
-	if f, ok := imageTypes[args[0]]; ok {
+	if f, ok := imageTypes[strings.ToLower(args[0])]; ok {
 		po.Format = f
 	} else {
 		return fmt.Errorf("Invalid image format: %s", args[0])
