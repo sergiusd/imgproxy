@@ -67,6 +67,14 @@ var (
 	}
 )
 
+func New(t string) (Type, error) {
+	f, ok := Types[strings.ToLower(t)]
+	if !ok {
+		return 0, fmt.Errorf("Invalid image format: %s", t)
+	}
+	return f, nil
+}
+
 func (it Type) String() string {
 	for k, v := range Types {
 		if v == it {
